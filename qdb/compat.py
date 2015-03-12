@@ -11,6 +11,8 @@
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
+from __future__ import print_function
+
 import sys
 
 
@@ -39,6 +41,7 @@ if PY2:
     import itertools
 
     filter = itertools.ifilter
+    input = raw_input  # NOQA
     items = dict.iteritems
     keys = dict.iterkeys
     map = itertools.imap
@@ -50,11 +53,14 @@ else:
     from io import StringIO
 
     filter = filter
+    input = input  # NOQA
     items = dict.items
     keys = dict.keys
     map = map
     range = range
     zip = zip
+
+print_ = print
 
 
 class Connection(object):
